@@ -25,6 +25,7 @@ import android.provider.Settings;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemProperties;
 import android.text.method.AllCapsTransformationMethod;
 import android.text.method.TransformationMethod;
 import android.util.DisplayMetrics;
@@ -79,7 +80,8 @@ public class PlatLogoActivity extends Activity {
         letter.setTextSize(300);
         letter.setTextColor(0xFFFFFFFF);
         letter.setGravity(Gravity.CENTER);
-        letter.setText(String.valueOf(Build.ID).substring(0, 1));
+        //letter.setText(String.valueOf(Build.ID).substring(0, 1));
+        letter.setText("K");
 
         final int p = (int)(4 * metrics.density);
 
@@ -90,7 +92,8 @@ public class PlatLogoActivity extends Activity {
         tv.setTextColor(0xFFFFFFFF);
         tv.setGravity(Gravity.CENTER);
         tv.setTransformationMethod(new AllCapsTransformationMethod(this));
-        tv.setText("Android " + Build.VERSION.RELEASE);
+        //tv.setText("Android " + Build.VERSION.RELEASE);
+        tv.setText("CyanFox " + SystemProperties.get("ro.cf.version","2+"));
         tv.setVisibility(View.INVISIBLE);
 
         mContent.addView(bg);
