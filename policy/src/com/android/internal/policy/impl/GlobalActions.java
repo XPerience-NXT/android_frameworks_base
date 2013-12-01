@@ -389,7 +389,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
 
         // next: screenrecord
-        // only shown if enabled, disabled by default
+        // only shown if enabled, enabled by default
         boolean showScreenrecord = Settings.System.getIntForUser(cr,
                 Settings.System.POWER_MENU_SCREENRECORD_ENABLED, 1, UserHandle.USER_CURRENT) == 1;
         if (showScreenrecord) {
