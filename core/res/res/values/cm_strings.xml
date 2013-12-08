@@ -197,4 +197,7 @@
     <string name="permdesc_recordScreen">Allows the app to
         record the users screen.</string>
 
+    <!--ScreenShot QuickTrash-->
+    <string name="trash">Trash</string>
+
 </resources>
