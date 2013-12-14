@@ -17,11 +17,13 @@
 package com.android.systemui;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -32,6 +34,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
@@ -67,6 +70,8 @@ public class BatteryMeterView extends View implements DemoMode {
     private final RectF mButtonFrame = new RectF();
     private final RectF mClipFrame = new RectF();
     private final RectF mBoltFrame = new RectF();
+
+    private SettingsObserver mSettingsObserver;
 
     private class BatteryTracker extends BroadcastReceiver {
         public static final int UNKNOWN_LEVEL = -1;
@@ -155,6 +160,8 @@ public class BatteryMeterView extends View implements DemoMode {
             // preload the battery level
             mTracker.onReceive(getContext(), sticky);
         }
+        mSettingsObserver.observe();
+        mSettingsObserver.onChange(true);
     }
 
     @Override
@@ -162,6 +169,7 @@ public class BatteryMeterView extends View implements DemoMode {
         super.onDetachedFromWindow();
 
         getContext().unregisterReceiver(mTracker);
+        mSettingsObserver.unobserve();
     }
 
     public BatteryMeterView(Context context) {
@@ -187,8 +195,6 @@ public class BatteryMeterView extends View implements DemoMode {
         }
         levels.recycle();
         colors.recycle();
-        mShowPercent = ENABLE_PERCENT && 0 != Settings.System.getInt(
-                context.getContentResolver(), "status_bar_show_battery_percent", 0);
 
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
 
@@ -223,6 +229,7 @@ public class BatteryMeterView extends View implements DemoMode {
         mBoltPaint.setColor(res.getColor(R.color.batterymeter_bolt_color));
         mBoltPoints = loadBoltPoints(res);
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        mSettingsObserver = new SettingsObserver(new Handler());
     }
 
     private static float[] loadBoltPoints(Resources res) {
@@ -382,6 +389,31 @@ public class BatteryMeterView extends View implements DemoMode {
                mDemoTracker.plugged = Boolean.parseBoolean(plugged);
            }
            postInvalidate();
+        }
+    }
+
+
+    private class SettingsObserver extends ContentObserver {
+
+        public SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        public void observe() {
+            final ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_BATTERY), false, this);
+        }
+
+        public void unobserve() {
+            mContext.getContentResolver().unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            mShowPercent = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY, 0) == 1;
+            invalidate();
         }
     }
 }
