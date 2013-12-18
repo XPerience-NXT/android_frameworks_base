@@ -52,13 +52,9 @@ public class BatteryMeterView extends View implements DemoMode {
         BATTERY_METER_CIRCLE
     }
 
-<<<<<<< HEAD
     private SettingsObserver mSettingsObserver;
 
-    private class BatteryTracker extends BroadcastReceiver {
-=======
     protected class BatteryTracker extends BroadcastReceiver {
->>>>>>> e18e0f1dad3b244624d15276cc0a21f14dd05158
         public static final int UNKNOWN_LEVEL = -1;
 
         // current battery status
@@ -175,13 +171,10 @@ public class BatteryMeterView extends View implements DemoMode {
             // preload the battery level
             mTracker.onReceive(getContext(), sticky);
         }
-<<<<<<< HEAD
         mSettingsObserver.observe();
         mSettingsObserver.onChange(true);
-=======
 
         mAttached = true;
->>>>>>> e18e0f1dad3b244624d15276cc0a21f14dd05158
     }
 
     @Override
