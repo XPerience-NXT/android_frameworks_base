@@ -17,13 +17,11 @@
 package com.android.systemui;
 
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -34,7 +32,6 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.BatteryManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
@@ -51,8 +48,6 @@ public class BatteryMeterView extends View implements DemoMode {
         BATTERY_METER_ICON_LANDSCAPE,
         BATTERY_METER_CIRCLE
     }
-
-    private SettingsObserver mSettingsObserver;
 
     protected class BatteryTracker extends BroadcastReceiver {
         public static final int UNKNOWN_LEVEL = -1;
@@ -171,9 +166,6 @@ public class BatteryMeterView extends View implements DemoMode {
             // preload the battery level
             mTracker.onReceive(getContext(), sticky);
         }
-        mSettingsObserver.observe();
-        mSettingsObserver.onChange(true);
-
         mAttached = true;
     }
 
@@ -183,7 +175,6 @@ public class BatteryMeterView extends View implements DemoMode {
 
         mAttached = false;
         getContext().unregisterReceiver(mTracker);
-        mSettingsObserver.unobserve();
     }
 
     public BatteryMeterView(Context context) {
@@ -210,6 +201,8 @@ public class BatteryMeterView extends View implements DemoMode {
         }
         levels.recycle();
         colors.recycle();
+        mShowPercent = ENABLE_PERCENT && 0 != Settings.System.getInt(
+                context.getContentResolver(), "status_bar_show_battery_percent", 0);
 
         mChargeColor = getResources().getColor(R.color.batterymeter_charge_color);
 
@@ -219,7 +212,6 @@ public class BatteryMeterView extends View implements DemoMode {
         mBatteryMeterDrawable = createBatteryMeterDrawable(mMeterMode);
 
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        mSettingsObserver = new SettingsObserver(new Handler());
     }
 
     protected BatteryMeterDrawable createBatteryMeterDrawable(BatteryMeterMode mode) {
@@ -802,31 +794,6 @@ public class BatteryMeterView extends View implements DemoMode {
             // the +1dp at end of formula balances out rounding issues.works out on all resolutions
             mTextY = mCircleSize / 2.0f + (bounds.bottom - bounds.top) / 2.0f
                     - strokeWidth / 2.0f + getResources().getDisplayMetrics().density;
-        }
-    }
-
-
-    private class SettingsObserver extends ContentObserver {
-
-        public SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        public void observe() {
-            final ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_BATTERY), false, this);
-        }
-
-        public void unobserve() {
-            mContext.getContentResolver().unregisterContentObserver(this);
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            mShowPercent = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.STATUS_BAR_BATTERY, 0) == 1;
-            invalidate();
         }
     }
 }
