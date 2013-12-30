@@ -118,7 +118,7 @@ public class NetworkStatsView extends LinearLayout {
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
 
             mNetStatsHide = (Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.STATUS_BAR_NETWORK_HIDE, 1) == 1);
+                    Settings.System.STATUS_BAR_NETWORK_HIDE, 0) == 1);
 
             updateStats();
         }
