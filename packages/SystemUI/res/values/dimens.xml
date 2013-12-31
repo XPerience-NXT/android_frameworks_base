@@ -244,6 +244,6 @@
     <dimen name="halo_content_max_width">250dp</dimen>
 
     <!-- Network stats text size -->
-    <dimen name="network_stats_text_size">10dp</dimen>
+    <dimen name="network_stats_text_size">9dp</dimen>
 
 </resources>
