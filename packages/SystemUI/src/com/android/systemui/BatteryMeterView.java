@@ -837,7 +837,7 @@ public class BatteryMeterView extends View implements DemoMode {
             DisplayMetrics dm = res.getDisplayMetrics();
 
             mBackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            Typeface font = Typeface.create("sans-serif", Typeface.BOLD);
+            Typeface font = Typeface.create("sans-serif", Typeface.NORMAL);
             mBackPaint.setTypeface(font);
             mBackPaint.setTextAlign(Paint.Align.RIGHT);
             mBackPaint.setColor(res.getColor(R.color.batterymeter_frame_color));
