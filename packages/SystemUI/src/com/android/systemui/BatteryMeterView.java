@@ -234,7 +234,7 @@ public class BatteryMeterView extends View implements DemoMode {
                 return new CircleBatteryMeterDrawable(res);
 
             case BATTERY_METER_TEXT:
-                return new TextBatteryMeterDrawable(res);
+                return new TextBatteryMeterDrawable(mContext);
 
             case BATTERY_METER_ICON_LANDSCAPE:
                 return new NormalBatteryMeterDrawable(res, true);
