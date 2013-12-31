@@ -234,7 +234,7 @@ public class BatteryMeterView extends View implements DemoMode {
                 return new CircleBatteryMeterDrawable(res);
 
             case BATTERY_METER_TEXT:
-                return new TextBatteryMeterDrawable(mContext);
+                return new TextBatteryMeterDrawable(res);
 
             case BATTERY_METER_ICON_LANDSCAPE:
                 return new NormalBatteryMeterDrawable(res, true);
@@ -850,7 +850,7 @@ public class BatteryMeterView extends View implements DemoMode {
         }
 
         @Override
-        public void onDraw(Canvas c) {
+        public void onDraw(Canvas c, BatteryTracker tracker) {
             if (mDisposed) return;
 
             int level = mTracker.level;
