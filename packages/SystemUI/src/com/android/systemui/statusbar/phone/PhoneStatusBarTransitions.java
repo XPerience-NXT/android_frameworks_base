@@ -97,7 +97,7 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
                     animateTransitionTo(mDockBattery, newAlphaBC),
                     animateTransitionTo(mBattery, newAlphaBC),
                     animateTransitionTo(mClock, newAlphaBC),
-                    animateTransitionTo(mNetStats, newAlphaBC)
+                    animateTransitionTo(mNetStats, newAlpha)
                     );
             if (mode == MODE_LIGHTS_OUT) {
                 anims.setDuration(LIGHTS_OUT_DURATION);
@@ -111,7 +111,7 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
             mDockBattery.setAlpha(newAlphaBC);
             mBattery.setAlpha(newAlphaBC);
             mClock.setAlpha(newAlphaBC);
-            mNetStats.setAlpha(newAlphaBC);
+            mNetStats.setAlpha(newAlpha);
         }
     }
 }
