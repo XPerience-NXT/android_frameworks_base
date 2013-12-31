@@ -186,6 +186,7 @@
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textSize">@dimen/network_stats_text_size</item>
         <item name="android:textColor">#ffffff</item>
+        <item name="android:paddingEnd">2dp</item>
     </style>
 
 </resources>
