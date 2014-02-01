@@ -93,8 +93,8 @@ public class PlatLogoActivity extends Activity {
         tv.setGravity(Gravity.CENTER);
         tv.setTransformationMethod(new AllCapsTransformationMethod(this));
         //tv.setText("Android " + Build.VERSION.RELEASE);
-        String[] parts = SystemProperties.get("ro.cf.version","").split("-");
-        tv.setText("CyanFox " + parts[0]);
+        String[] parts = SystemProperties.get("ro.xpe.version","").split("-");
+        tv.setText("XPerience " + parts[0]);
         tv.setVisibility(View.INVISIBLE);
 
         mContent.addView(bg);
