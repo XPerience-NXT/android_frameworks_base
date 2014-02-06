@@ -90,11 +90,13 @@ public class PlatLogoActivity extends Activity {
         letter.setTextSize(mIsCM ? 150 : 300);
         letter.setTextColor(0xFFFFFFFF);
         letter.setGravity(Gravity.CENTER);
-        letter.setText(mIsCM ? "CM" : "K");
+        letter.setText(mIsCM ? "CF" : "K");
 
-        String cmVersion = SystemProperties.get("ro.cm.version");
+        String cmVersion = SystemProperties.get("ro.cf.version");
         if (cmVersion != null) {
-            cmVersion = cmVersion.replaceAll("([0-9\\.]+?)-.*", "$1");
+            //cmVersion = cmVersion.replaceAll("([0-9\\.]+?)-.*", "$1");
+            String[] parts = cmVersion.split("-");
+            cmVersion = parts[0];
         }
 
         p = (int) (4 * metrics.density);
@@ -105,7 +107,7 @@ public class PlatLogoActivity extends Activity {
         tv.setPadding(p, p, p, p);
         tv.setTextColor(0xFFFFFFFF);
         tv.setGravity(Gravity.CENTER);
-        tv.setText(mIsCM ? "CyanogenMod " + cmVersion : "ANDROID " + Build.VERSION.RELEASE);
+        tv.setText(mIsCM ? "CyanFox " + cmVersion : "ANDROID " + Build.VERSION.RELEASE);
         tv.setVisibility(View.INVISIBLE);
 
         mContent.addView(bg);
