@@ -370,7 +370,17 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
                     && (mRecentTaskDescriptions.size() == 0);
             mRecentsNoApps.setAlpha(1f);
             mRecentsNoApps.setVisibility(noApps ? View.VISIBLE : View.INVISIBLE);
-            mClearRecents.setVisibility(noApps ? View.GONE : View.VISIBLE);
+
+            String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
+            final int showByDefault = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_showNavigationBar) || "1".equals(navBarOverride) ? 1 : 0;
+                        
+            mHasNavigationBar = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_SHOW, showByDefault,
+                    UserHandle.USER_CURRENT) == 1;
+
+            mClearRecents.setVisibility(noApps || mHasNavigationBar ? View.GONE : View.VISIBLE);
+
             onAnimationEnd(null);
             setFocusable(true);
             setFocusableInTouchMode(true);
