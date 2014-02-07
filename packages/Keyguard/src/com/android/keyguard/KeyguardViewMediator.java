@@ -548,6 +548,10 @@ public class KeyguardViewMediator {
         mLockSoundVolume = (float)Math.pow(10, (float)lockSoundDefaultAttenuation/20);
     }
 
+    public void setBackgroundBitmap(Bitmap bmp) {
+        mKeyguardViewManager.setBackgroundBitmap(bmp);
+    }
+
     /**
      * Let us know that the system is ready after startup.
      */
@@ -691,7 +695,6 @@ public class KeyguardViewMediator {
 
         if (timeout <= 0) {
             // Lock now
-            mSuppressNextLockSound = true;
             doKeyguardLocked(null);
         } else {
             // Lock in the future
@@ -1078,8 +1081,6 @@ public class KeyguardViewMediator {
                         + sequence + ", mDelayedShowingSequence = " + mDelayedShowingSequence);
                 synchronized (KeyguardViewMediator.this) {
                     if (mDelayedShowingSequence == sequence) {
-                        // Don't play lockscreen SFX if the screen went off due to timeout.
-                        mSuppressNextLockSound = true;
                         doKeyguardLocked(null);
                     }
                 }
