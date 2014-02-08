@@ -26,6 +26,7 @@ import android.provider.Settings;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemProperties;
 import android.text.method.AllCapsTransformationMethod;
 import android.text.method.TransformationMethod;
 import android.util.DisplayMetrics;

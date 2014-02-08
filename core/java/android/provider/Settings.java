@@ -1935,11 +1935,6 @@ public final class Settings {
         public static final String SHOW_PROCESSES = Global.SHOW_PROCESSES;
 
         /**
-         * Control whether the process CPU info meter should be shown.
-         */
-        public static final String SHOW_CPU = "show_cpu";
-
-        /**
          * If 1, the activity manager will aggressively finish activities and
          * processes as soon as they are no longer needed.  If 0, the normal
          * extended lifetime is used.
@@ -2650,6 +2645,12 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_BATTERY_VISIBILITY = "lockscreen_always_show_battery";
+
+       /**
+         * Allows to show the background activity back the lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_SEE_THROUGH = "lockscreen_see_through";
 
         /**
          * @deprecated Use {@link android.provider.Settings.Global#LOW_BATTERY_SOUND}
@@ -7172,6 +7173,11 @@ public final class Settings {
          * Control whether the process CPU usage meter should be shown.
          */
         public static final String SHOW_PROCESSES = "show_processes";
+
+        /**
+	* Control whether the process CPU info meter should be shown.
+	*/
+        public static final String SHOW_CPU = "show_cpu";
 
         /**
          * If 1, the activity manager will aggressively finish activities and

@@ -386,7 +386,7 @@ final class DisplayPowerController {
     private boolean mTwilightChanged;
     private boolean mAutoBrightnessSettingsChanged;
 
-    private Context mContext;
+    //private Context mContext;
 
     private KeyguardServiceWrapper mKeyguardService;
 

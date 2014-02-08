@@ -56,6 +56,8 @@ import com.android.systemui.statusbar.BaseStatusBar;
 import com.android.systemui.statusbar.DelegateViewHelper;
 import com.android.systemui.statusbar.policy.DeadZone;
 import com.android.systemui.statusbar.policy.KeyButtonView;
+import com.android.systemui.recent.RecentsActivity;
+import com.android.systemui.recent.NavigationCallback;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
