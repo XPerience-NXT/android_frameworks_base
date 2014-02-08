@@ -638,10 +638,10 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
         }
 
         setNavigationIconHints(mNavigationIconHints, true);
-        // Reset recents hints after reorienting 
-        ImageView recentView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_RECENT);
+        // Reset recents hints after reorienting
+        /*ImageView recentView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_RECENT);
         recentView.setImageDrawable(mVertical
-                ? mRecentLandIcon : mRecentIcon);
+                ? mRecentLandIcon : mRecentIcon);*/
     }
 
     @Override
