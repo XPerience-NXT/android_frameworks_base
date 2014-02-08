@@ -33,8 +33,8 @@ import android.view.WindowManager;
 
 import com.android.systemui.R;
 import com.android.systemui.statusbar.StatusBarPanel;
-
 import com.android.systemui.statusbar.phone.NavigationBarView;
+import com.android.systemui.recent.NavigationCallback;
 
 import java.util.ArrayList;
 
@@ -45,6 +45,7 @@ public class RecentsActivity extends Activity {
     public static final String PRELOAD_INTENT = "com.android.systemui.recent.action.PRELOAD";
     public static final String CANCEL_PRELOAD_INTENT = "com.android.systemui.recent.CANCEL_PRELOAD";
     public static final String CLOSE_RECENTS_INTENT = "com.android.systemui.recent.action.CLOSE";
+    public static final String CLEAR_RECENTS_INTENT = "com.android.systemui.recent.action.CLEAR";
     public static final String WINDOW_ANIMATION_START_INTENT = "com.android.systemui.recent.action.WINDOW_ANIMATION_START";
     public static final String PRELOAD_PERMISSION = "com.android.systemui.recent.permission.PRELOAD";
     public static final String WAITING_FOR_WINDOW_ANIMATION_PARAM = "com.android.systemui.recent.WAITING_FOR_WINDOW_ANIMATION";

@@ -52,6 +52,8 @@ import android.widget.LinearLayout;
 
 import com.android.internal.widget.LockPatternUtils;
 import com.android.systemui.R;
+import com.android.systemui.recent.NavigationCallback;
+import com.android.systemui.recent.RecentsActivity;
 import com.android.systemui.statusbar.BaseStatusBar;
 import com.android.systemui.statusbar.DelegateViewHelper;
 import com.android.systemui.statusbar.policy.DeadZone;
