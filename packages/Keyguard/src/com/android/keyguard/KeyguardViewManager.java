@@ -251,8 +251,7 @@ public class KeyguardViewManager {
             if (drawable != null) {
                 if (!mRotated && mBlurredImage != null) {
                     // TODO: we don't support forced rotation now for keyguard
-                    //int rotation = mKeyguardView.getDisplay().getRotation();
-                    int rotation = 0;
+                    /*int rotation = mKeyguardView.getDisplay().getRotation();
                     switch(rotation){
                         case ROTATE_0:
                         case ROTATE_90:
@@ -266,7 +265,7 @@ public class KeyguardViewManager {
                                 mLastRotation - (rotation * 180));
                             mLastRotation = rotation * 180;
                         break;
-                    }
+                    }*/
                     mRotated = true;
                     setCustomBackground(new BitmapDrawable(mContext.getResources(),
                             mBlurredImage));
