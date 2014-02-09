@@ -250,7 +250,9 @@ public class KeyguardViewManager {
         public void drawToCanvas(Canvas canvas, Drawable drawable) {
             if (drawable != null) {
                 if (!mRotated && mBlurredImage != null) {
-                    int rotation = mKeyguardView.getDisplay().getRotation();
+                    // TODO: we don't support forced rotation now for keyguard
+                    //int rotation = mKeyguardView.getDisplay().getRotation();
+                    int rotation = 0;
                     switch(rotation){
                         case ROTATE_0:
                         case ROTATE_90:
