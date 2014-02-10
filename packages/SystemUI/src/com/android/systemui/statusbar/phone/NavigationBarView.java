@@ -422,14 +422,14 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
         ImageView backView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_BACK);
         ImageView recentView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_RECENT);
 
-        if (backView != null && button == NavigationCallback.NAVBAR_BACK_HINT) {
+        if (backView != null) {
             backView.setImageDrawable(
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_BACK_ALT))
                     ? (mVertical ? mBackAltLandIcon : mBackAltIcon)
                     : (mVertical ? mBackLandIcon : mBackIcon));
         }
 
-        if (recentView != null && button == NavigationCallback.NAVBAR_RECENTS_HINT) {
+        if (recentView != null) {
             recentView.setImageDrawable(
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_RECENT_ALT))
                     ? (mVertical ? mRecentAltLandIcon : mRecentAltIcon)
