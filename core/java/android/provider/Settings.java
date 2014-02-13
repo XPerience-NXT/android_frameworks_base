@@ -2757,6 +2757,12 @@ public final class Settings {
         public static final String EGG_MODE = "egg_mode";
 
         /**
+         * Show the content behind the lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_SEE_THROUGH = "lockscreen_see_through";
+
+        /**
          * Width and height of output vide expressed in WxH
          * @hide
          */
@@ -2918,6 +2924,13 @@ public final class Settings {
          * @hide
          */
         public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
+
+        /**
+         * Whether navigation bar is placed on the left side in landscape mode
+         *
+         * @hide
+         */
+        public static final String NAVBAR_LEFT_IN_LANDSCAPE = "navigation_bar_left";
 
         /**
         * Notification Power Widget - Custom Brightness Mode
@@ -3151,7 +3164,34 @@ public final class Settings {
          */
         public static final String MVNO_ROAMING = "mvno_roaming";
 
+        /**  
+         * ListView Animations
+         * 0 == None
+         * 1 == Wave (Left)
+         * 2 == Wave (Right)
+         * 3 == Scale
+         * 4 == Alpha
+         * 5 == Stack (Top)
+         * 6 == Stack (Bottom)
+         * 7 == Translate (Left)
+         * 8 == Translate (Right)
+         */
+        public static final String LISTVIEW_ANIMATION = "listview_animation";
+
         /**
+         * ListView Interpolators
+         * 0 == None
+         * 1 == accelerate_interpolator
+         * 2 == decelerate_interpolator
+         * 3 == accelerate_decelerate_interpolator
+         * 4 == anticipate_interpolator
+         * 5 == overshoot_interpolator
+         * 6 == anticipate_overshoot_interpolator
+         * 7 == bounce_interpolator
+         */
+        public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
+         
+         /**
          * Whether to enable quiet hours.
          * @hide
          */
@@ -7140,6 +7180,11 @@ public final class Settings {
          * Control whether the process CPU usage meter should be shown.
          */
         public static final String SHOW_PROCESSES = "show_processes";
+
+        /**
+	* Control whether the process CPU info meter should be shown.
+	*/
+        public static final String SHOW_CPU = "show_cpu";
 
         /**
          * If 1, the activity manager will aggressively finish activities and
