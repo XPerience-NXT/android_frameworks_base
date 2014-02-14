@@ -63,7 +63,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
 public class NavigationBarView extends LinearLayout implements NavigationCallback {
-    final static boolean DEBUG = false;
+    final static boolean DEBUG = true;
     final static String TAG = "PhoneStatusBar/NavigationBarView";
 
     final static boolean NAVBAR_ALWAYS_AT_RIGHT = true;
@@ -426,14 +426,14 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
         ImageView backView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_BACK);
         ImageView recentView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_RECENT);
 
-        if (backView != null) {
+        if (backView != null && button == NavigationCallback.NAVBAR_BACK_HINT) {
             backView.setImageDrawable(
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_BACK_ALT))
                     ? (mVertical ? mBackAltLandIcon : mBackAltIcon)
                     : (mVertical ? mBackLandIcon : mBackIcon));
         }
 
-        if (recentView != null) {
+        if (recentView != null && button == NavigationCallback.NAVBAR_RECENTS_HINT) {
             recentView.setImageDrawable(
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_RECENT_ALT))
                     ? (mVertical ? mRecentAltLandIcon : mRecentAltIcon)
