@@ -63,7 +63,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
 public class NavigationBarView extends LinearLayout implements NavigationCallback {
-    final static boolean DEBUG = true;
+    final static boolean DEBUG = false;
     final static String TAG = "PhoneStatusBar/NavigationBarView";
 
     final static boolean NAVBAR_ALWAYS_AT_RIGHT = true;
