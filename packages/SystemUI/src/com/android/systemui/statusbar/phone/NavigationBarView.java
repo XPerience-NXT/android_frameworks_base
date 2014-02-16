@@ -431,13 +431,12 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_BACK_ALT))
                     ? (mVertical ? mBackAltLandIcon : mBackAltIcon)
                     : (mVertical ? mBackLandIcon : mBackIcon));
-        }
-
-        if (recentView != null && button == NavigationCallback.NAVBAR_RECENTS_HINT) {
+        } else if (recentView != null && button == NavigationCallback.NAVBAR_RECENTS_HINT) {
             recentView.setImageDrawable(
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_RECENT_ALT))
                     ? (mVertical ? mRecentAltLandIcon : mRecentAltIcon)
                     : (mVertical ? mRecentLandIcon : mRecentIcon));
+            Log.d(TAG, "recents nav: hints("+hints+"), statusbarmgr("+StatusBarManager.NAVIGATION_HINT_RECENT_ALT+"), vertical("+mVertical+")");
         }
 
         setDisabledFlags(mDisabledFlags, true);
@@ -641,9 +640,9 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
         setDisabledFlags(mDisabledFlags, true /* force */);
         setMenuVisibility(mShowMenu, true /* force */);
 
-        if (DEBUG) {
+        //if (DEBUG) {
             Log.d(TAG, "reorient(): rot=" + mDisplay.getRotation());
-        }
+        //}
 
         setNavigationIconHints(mNavigationIconHints, true);
         // Reset recents hints after reorienting 
