@@ -65,7 +65,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
 public class NavigationBarView extends LinearLayout implements NavigationCallback {
-    final static boolean DEBUG = true;
+    final static boolean DEBUG = false;
     final static String TAG = "PhoneStatusBar/NavigationBarView";
 
     final static boolean NAVBAR_ALWAYS_AT_RIGHT = true;
@@ -433,13 +433,12 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_BACK_ALT))
                     ? (mVertical ? mBackAltLandIcon : mBackAltIcon)
                     : (mVertical ? mBackLandIcon : mBackIcon));
-        }
-
-        if (recentView != null && button == NavigationCallback.NAVBAR_RECENTS_HINT) {
+        } else if (recentView != null && button == NavigationCallback.NAVBAR_RECENTS_HINT) {
             recentView.setImageDrawable(
                 (0 != (hints & StatusBarManager.NAVIGATION_HINT_RECENT_ALT))
                     ? (mVertical ? mRecentAltLandIcon : mRecentAltIcon)
                     : (mVertical ? mRecentLandIcon : mRecentIcon));
+            Log.d(TAG, "recents nav: hints("+hints+"), statusbarmgr("+StatusBarManager.NAVIGATION_HINT_RECENT_ALT+"), vertical("+mVertical+")");
         }
 
         setDisabledFlags(mDisabledFlags, true);
@@ -643,9 +642,9 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
         setDisabledFlags(mDisabledFlags, true /* force */);
         setMenuVisibility(mShowMenu, true /* force */);
 
-        if (DEBUG) {
+        //if (DEBUG) {
             Log.d(TAG, "reorient(): rot=" + mDisplay.getRotation());
-        }
+        //}
 
         setNavigationIconHints(mNavigationIconHints, true);
         // Reset recents hints after reorienting 
