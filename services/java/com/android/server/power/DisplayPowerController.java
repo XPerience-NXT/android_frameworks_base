@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2014 The XPerience Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -256,7 +257,7 @@ final class DisplayPowerController {
     // True if we should allow showing the screen-off animation
     private boolean useScreenOffAnimation() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.SCREEN_OFF_ANIMATION, 1) == 1;
+	Settings.System.SCREEN_OFF_ANIMATION, SCREEN_OFF_CRT) != SCREEN_OFF_TURNOFF;
     }
 
     // The pending power request.
@@ -386,6 +387,13 @@ final class DisplayPowerController {
     private boolean mTwilightChanged;
     private boolean mAutoBrightnessSettingsChanged;
 
+    // Screen-off animationn
+    private static final int SCREEN_OFF_FADE = 0;
+    private static final int SCREEN_OFF_CRT = 1;
+    private static final int SCREEN_OFF_SCALE = 2;
+    private static final int SCREEN_OFF_TURNOFF = 3;
+    private int mScreenOffAnimation;
+
     //private Context mContext;
 
     private KeyguardServiceWrapper mKeyguardService;
@@ -466,6 +474,26 @@ final class DisplayPowerController {
             mLightSensorWarmUpTimeConfig = resources.getInteger(
                     com.android.internal.R.integer.config_lightSensorWarmupTime);
             updateAutomaticBrightnessSettings();
+        }
+
+ if (!mElectronBeamFadesConfig) {
+            final ContentResolver cr = mContext.getContentResolver();
+            final ContentObserver observer = new ContentObserver(mHandler) {
+                @Override
+                public void onChange(boolean selfChange, Uri uri) {
+                    mScreenOffAnimation = Settings.System.getIntForUser(cr,
+                        Settings.System.SCREEN_OFF_ANIMATION,
+                        SCREEN_OFF_CRT, UserHandle.USER_CURRENT);
+                    Slog.e("Klozz", "Set screen off to " + mScreenOffAnimation);
+                }
+            };
+
+            cr.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SCREEN_OFF_ANIMATION),
+                    false, observer, UserHandle.USER_ALL);
+            mScreenOffAnimation = Settings.System.getIntForUser(cr,
+                    Settings.System.SCREEN_OFF_ANIMATION,
+                    SCREEN_OFF_CRT, UserHandle.USER_CURRENT);
         }
 
         if (!DEBUG_PRETEND_PROXIMITY_SENSOR_ABSENT) {
@@ -874,15 +902,24 @@ final class DisplayPowerController {
             } else {
                 // Want screen off.
                 // Wait for previous on animation to complete beforehand.
+		int electronBeamMode = ElectronBeam.MODE_FADE;
+                if (!mElectronBeamFadesConfig) {
+                    switch (mScreenOffAnimation) {
+                    case SCREEN_OFF_CRT:
+                        electronBeamMode = ElectronBeam.MODE_COOL_DOWN;
+                        break;
+                    case SCREEN_OFF_SCALE:
+                        electronBeamMode = ElectronBeam.MODE_SCALE_DOWN;
+                        break;
+                    }
+                }
+
                 if (!mElectronBeamOnAnimator.isStarted()) {
                     if (!mElectronBeamOffAnimator.isStarted()) {
                         if (mPowerState.getElectronBeamLevel() == 0.0f) {
                             setScreenOn(false);
                             unblockScreenOn();
-                        } else if (mPowerState.prepareElectronBeam(
-                                mElectronBeamFadesConfig() ?
-                                        ElectronBeam.MODE_FADE :
-                                        ElectronBeam.MODE_COOL_DOWN)
+			 } else if (mPowerState.prepareElectronBeam(electronBeamMode)
                                 && mPowerState.isScreenOn()
                                 && useScreenOffAnimation()) {
                             mElectronBeamOffAnimator.start();

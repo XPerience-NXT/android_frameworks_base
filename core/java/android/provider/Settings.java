@@ -1913,7 +1913,7 @@ public final class Settings {
         public static final String BUTTON_BACKLIGHT_TIMEOUT = "button_backlight_timeout";
 
         /**
-         * Control whether the screen off animation should be shown
+         *  Defines the screen-off animation to display
          * @hide
          */
         public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
