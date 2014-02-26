@@ -263,7 +263,7 @@ final class ElectronBeam {
         return showSurface(1.0f);
     }
 
-	private void drawScaled(float scale)ñ
+	private void drawScaled(float scale){
 		final float curvedScale = scurve(scale, 0.8f);
 		
 		//set blending, enable alpha operations
