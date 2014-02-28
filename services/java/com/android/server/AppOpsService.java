@@ -744,10 +744,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                         // under.  Abort.
                         Slog.w(TAG, "Bad call: specified package " + packageName
                                 + " under uid " + uid + " but it is really " + pkgUid);
-                        // Dirt hack for SetupWizard FC
-                        // TODO: modify SetupWizard one of activity in smali...
-                        // Ref: http://review.cyanogenmod.org/#/c/57350/
-                        //return null;
+                        return null;
                     }
                 } finally {
                     Binder.restoreCallingIdentity(ident);
