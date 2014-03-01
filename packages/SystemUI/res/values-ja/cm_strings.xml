@@ -19,8 +19,8 @@
     <string name="accessibility_data_connection_DC">DCHSPAP</string>
     <string name="accessibility_quick_settings_ringer">サウンド <xliff:g id="state" example="Off">%s</xliff:g></string>
     <string name="accessibility_quick_settings_vibration">バイブレーション <xliff:g id="state" example="Off">%s</xliff:g></string>
-    <string name="dessert_case_settings_cm_title">CyanFoxのマスコットを表示</string>
-    <string name="dessert_case_settings_cm_summary">イースターエッグでAndroidのデザートと一緒にCyanFoxのマスコットを表示する</string>
+    <string name="dessert_case_settings_cm_title">CFのマスコットを表示</string>
+    <string name="dessert_case_settings_cm_summary">イースターエッグでAndroidのデザートと一緒にCFのマスコットを表示する</string>
     <string name="quick_settings_profile_label">プロフィール</string>
     <string name="powerwidget_screen_timeout_toast">画面のタイムアウトを%1$d%2$sに設定しました</string>
     <string name="quick_settings_gps">GPS</string>
