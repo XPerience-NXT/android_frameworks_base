@@ -48,6 +48,8 @@ import android.widget.TextView;
 import com.android.systemui.R;
 import com.android.systemui.SystemUI;
 
+import com.android.internal.util.cm.QuietHoursUtils;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -385,7 +387,8 @@ public class PowerUI extends SystemUI {
             Slog.d(TAG, "playing low battery sound. pick-a-doop!"); // WOMP-WOMP is deprecated
         }
 
-        if (Settings.Global.getInt(cr, Settings.Global.POWER_SOUNDS_ENABLED, 1) == 1) {
+        if (Settings.Global.getInt(cr, Settings.Global.POWER_SOUNDS_ENABLED, 1) == 1
+                && !QuietHoursUtils.inQuietHours(mContext, Settings.System.QUIET_HOURS_SYSTEM)) {
             final String soundPath = Settings.Global.getString(cr,
                     Settings.Global.LOW_BATTERY_SOUND);
             if (soundPath != null) {
