@@ -1323,12 +1323,12 @@ public class AppOpsManager {
     }
 
     /** @hide */
-    public void resetCounters() {
-        try {
-            mService.resetCounters();
-        } catch (RemoteException e) {
-        }
-    }
+//    public void resetCounters() {
+  //      try {
+    //        mService.resetCounters();
+      //  } catch (RemoteException e) {
+       // }
+   // }
 
     /** @hide */
     public static boolean isStrictEnable() {
