@@ -1215,7 +1215,7 @@ public class AppOpsService extends IAppOpsService.Stub {
         }
     }
 
-    @Override
+    //@Override
     public void resetCounters() {
         mContext.enforcePermission(android.Manifest.permission.UPDATE_APP_OPS_STATS,
                 Binder.getCallingPid(), Binder.getCallingUid(), null);
