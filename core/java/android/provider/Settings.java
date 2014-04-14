@@ -54,6 +54,7 @@ import android.text.TextUtils;
 import android.util.AndroidException;
 import android.util.Log;
 
+import com.android.internal.util.cm.LockscreenBackgroundUtil;
 import com.android.internal.widget.ILockSettings;
 
 import java.net.URISyntaxException;
@@ -2649,6 +2650,12 @@ public final class Settings {
         public static final String LOCKSCREEN_BATTERY_VISIBILITY = "lockscreen_always_show_battery";
 
         /**
+         * Whether to enable the modlock keyguard
+         * @hide
+         */
+        public static final String LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
+
+        /**
          * @deprecated Use {@link android.provider.Settings.Global#LOW_BATTERY_SOUND}
          * instead
          * @hide
@@ -3214,6 +3221,7 @@ public final class Settings {
          */
         public static final String MVNO_ROAMING = "mvno_roaming";
 
+<<<<<<< HEAD
         /**  
          * ListView Animations
          * 0 == None
@@ -3242,6 +3250,15 @@ public final class Settings {
         public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
          
          /**
+=======
+        /**
+         * Whether to enforce quiet hours regardless of the timer.
+         * @hide
+         */
+        public static final String QUIET_HOURS_FORCED = "quiet_hours_forced";
+
+        /**
+>>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
          * Whether to enable quiet hours.
          * @hide
          */
@@ -3320,10 +3337,12 @@ public final class Settings {
         public static final String QUIET_HOURS_DIM = "quiet_hours_dim";
 
         /**
-         * Sets the lockscreen background style
+         * Sets the lockscreen background style. Integer.
+         * @see LockscreenBackgroundUtil#LOCKSCREEN_STYLE_DEFAULT
+         * @see LockscreenBackgroundUtil#LOCKSCREEN_STYLE_IMAGE
          * @hide
          */
-        public static final String LOCKSCREEN_BACKGROUND = "lockscreen_background";
+        public static final String LOCKSCREEN_BACKGROUND_STYLE = "lockscreen_background_style";
 
          /**
          * Action for long-pressing back button on lock screen
@@ -3625,6 +3644,7 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
 
         /**
+<<<<<<< HEAD
          * whether which Ram Usage Bar mode is used on recent switcher
          * 0 = none, 1 = only app use, 2 = app and cache use, 3 = app, cache and system use
          * @hide
@@ -3651,6 +3671,20 @@ public final class Settings {
          * @hide
          */
         public static final String RECENTS_RAM_BAR_ACTIVE_APPS_COLOR = "recents_ram_bar_active_apps_color";
+=======
+         * Whether to enable voice wakeup.  The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String VOICE_WAKEUP = "voice_wakeup";
+
+        /**
+         * An intent (a flattened Uri String) to launch when user voice launch
+         * action is detected. An empty or null string will launch the default
+         * voice search activity.
+         * @hide
+         */
+        public static final String VOICE_LAUNCH_INTENT = "voice_launch_intent";
+>>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -3746,6 +3780,7 @@ public final class Settings {
             POWER_MENU_SOUND_ENABLED,
             POWER_MENU_USER_ENABLED,
             LOCKSCREEN_BATTERY_VISIBILITY,
+            LOCKSCREEN_MODLOCK_ENABLED,
             PHONE_BLACKLIST_ENABLED,
             PHONE_BLACKLIST_NOTIFY_ENABLED,
             PHONE_BLACKLIST_PRIVATE_NUMBER_MODE,
@@ -7366,6 +7401,13 @@ public final class Settings {
          * @hide
          */
         public static final String LOW_BATTERY_SOUND_TIMEOUT = "low_battery_sound_timeout";
+
+        /**
+         * Enable the QuickBoot feature
+         *
+         * @hide
+         */
+        public static final String ENABLE_QUICKBOOT = "enable_quickboot";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
