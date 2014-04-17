@@ -45,7 +45,7 @@ import java.util.ArrayList;
  * {@link Intent#ACTION_SEND}.
  */
 public class BugreportReceiver extends BroadcastReceiver {
-    private static final String TAG = "Shell";
+    private static final String TAG = "Klzz_Report_Shell";
 
     private static final String AUTHORITY = "com.android.shell";
 

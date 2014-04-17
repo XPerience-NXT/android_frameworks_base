@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
  * Copyright (C) 2012-2013 The CyanogenMod Project
+ * Copyright (C) 2011-2014 The XPerience Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -4614,7 +4615,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
-<<<<<<< HEAD
+
     final Object mScreenRecordLock = new Object();
     ServiceConnection mScreenRecordConnection = null;
 
@@ -4632,7 +4633,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void performScreenRecord() {
         final Intent recordIntent = new Intent("org.chameleonos.action.NOTIFY_RECORD_SERVICE");
         mContext.sendBroadcast(recordIntent, Manifest.permission.RECORD_SCREEN);
-=======
+}
+
     private final Runnable mQuickBootPowerLongPress = new Runnable() {
 
         public void run() {
@@ -4683,7 +4685,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (mQuickBootWakeLock.isHeld()) {
             mQuickBootWakeLock.release();
         }
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
+
     }
 
     /** {@inheritDoc} */

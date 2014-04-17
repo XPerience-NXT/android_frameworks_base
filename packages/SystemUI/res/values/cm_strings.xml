@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2012-2014 The CyanogenMod Project
+     Copyright (C) 2011-2014 The XPerience Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,8 +25,8 @@
     <string name="accessibility_quick_settings_ringer">Sound <xliff:g id="state" example="Off">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_vibration">Vibration <xliff:g id="state" example="Off">%s</xliff:g>.</string>
 
-    <string name="dessert_case_settings_cm_title">Show XPE\'s mascots</string>
-    <string name="dessert_case_settings_cm_summary">Show XPE\'s mascots together with Android\'s desserts inside the dream</string>
+    <string name="dessert_case_settings_cm_title">Show XPerience\'s mascots</string>
+    <string name="dessert_case_settings_cm_summary">Show XPerience\'s mascots together with Android\'s desserts inside the dream</string>
 
     <!-- QuickSettings: Profile [CHAR LIMIT=NONE] -->
     <string name="quick_settings_profile_label">Profile</string>

@@ -2544,14 +2544,13 @@
         android:description="@string/permdesc_accessNetworkConditions"
         android:protectionLevel="signature|system" />
 
-<<<<<<< HEAD
     <!-- Allows an application to record the screen.
          @hide This is not a third-party API (intended for system apps). -->
     <permission android:name="android.permission.RECORD_SCREEN"
         android:label="@string/permlab_recordScreen"
         android:description="@string/permdesc_recordScreen"
         android:protectionLevel="signature|system" />
-=======
+
     <!-- =============================================================== -->
     <!-- Permissions for accessing security data                         -->
     <!-- =============================================================== -->
@@ -2588,7 +2587,6 @@
         android:label="@string/permlab_accessThemeService"
         android:description="@string/permdesc_accessThemeService"
         android:protectionLevel="signature" />
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
 
     <!-- The system process is explicitly the only one allowed to launch the
          confirmation UI for full backup/restore -->

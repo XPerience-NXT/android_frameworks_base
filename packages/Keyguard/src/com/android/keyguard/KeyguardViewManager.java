@@ -17,12 +17,9 @@
 
 package com.android.keyguard;
 
-<<<<<<< HEAD
-=======
 import java.io.File;
 
 import android.app.PendingIntent;
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -34,11 +31,8 @@ import com.android.internal.widget.LockPatternUtils;
 import android.app.ActivityManager;
 import android.app.WallpaperManager;
 import android.appwidget.AppWidgetManager;
-<<<<<<< HEAD
 import android.content.ContentResolver;
-=======
 import android.content.BroadcastReceiver;
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -46,11 +40,9 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-<<<<<<< HEAD
+
 import android.graphics.drawable.Drawable;
-=======
 import android.graphics.BitmapFactory;
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
@@ -84,16 +76,13 @@ import android.view.ViewManager;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-<<<<<<< HEAD
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.*;
 import android.provider.Settings;
 import android.view.*;
 
-=======
 import com.android.internal.util.cm.LockscreenBackgroundUtil;
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
 import com.android.internal.util.cm.TorchConstants;
 
 /**
@@ -104,7 +93,7 @@ import com.android.internal.util.cm.TorchConstants;
  */
 public class KeyguardViewManager {
     private final static boolean DEBUG = KeyguardViewMediator.DEBUG;
-    private static String TAG = "KeyguardViewManager";
+    private static String TAG = "KLZZ_KeyguardViewManager";
     public final static String IS_SWITCHING_USER = "is_switching_user";
 
     // Delay dismissing keyguard to allow animations to complete.
@@ -140,15 +129,12 @@ public class KeyguardViewManager {
     private KeyguardUpdateMonitorCallback mBackgroundChanger = new KeyguardUpdateMonitorCallback() {
         @Override
         public void onSetBackground(Bitmap bmp) {
-<<<<<<< HEAD
             // album art album should override blurred background
             if (bmp != null) mBlurredImage = null;
             setCustomBackground(bmp);
-=======
             mKeyguardHost.setCustomBackground(bmp != null ?
                     new BitmapDrawable(mContext.getResources(), bmp) : null);
             updateShowWallpaper(mKeyguardHost.shouldShowWallpaper());
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
         }
     };
 

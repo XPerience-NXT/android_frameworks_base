@@ -2,6 +2,8 @@
  * Copyright (c) 2013 The Linux Foundation. All rights reserved.
  * Not a Contribution.
  * Copyright (C) 2006 The Android Open Source Project
+ * 
+ *      Copyright (C) 2011-2014 The XPerience Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -3221,7 +3223,6 @@ public final class Settings {
          */
         public static final String MVNO_ROAMING = "mvno_roaming";
 
-<<<<<<< HEAD
         /**  
          * ListView Animations
          * 0 == None
@@ -3249,8 +3250,6 @@ public final class Settings {
          */
         public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
          
-         /**
-=======
         /**
          * Whether to enforce quiet hours regardless of the timer.
          * @hide
@@ -3258,7 +3257,6 @@ public final class Settings {
         public static final String QUIET_HOURS_FORCED = "quiet_hours_forced";
 
         /**
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
          * Whether to enable quiet hours.
          * @hide
          */
@@ -3644,7 +3642,6 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
 
         /**
-<<<<<<< HEAD
          * whether which Ram Usage Bar mode is used on recent switcher
          * 0 = none, 1 = only app use, 2 = app and cache use, 3 = app, cache and system use
          * @hide
@@ -3671,7 +3668,8 @@ public final class Settings {
          * @hide
          */
         public static final String RECENTS_RAM_BAR_ACTIVE_APPS_COLOR = "recents_ram_bar_active_apps_color";
-=======
+
+         /*
          * Whether to enable voice wakeup.  The value is boolean (1 or 0).
          * @hide
          */
@@ -3684,7 +3682,6 @@ public final class Settings {
          * @hide
          */
         public static final String VOICE_LAUNCH_INTENT = "voice_launch_intent";
->>>>>>> 7bd5eaa5dd5d8cbed1cb7b6563176bc034d8a9f4
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
