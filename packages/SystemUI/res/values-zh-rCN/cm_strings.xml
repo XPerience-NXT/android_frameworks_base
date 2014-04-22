@@ -17,6 +17,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
   <string name="accessibility_quick_settings_ringer">声音 <xliff:g id="state" example="Off"> %s </xliff:g>。</string>
   <string name="accessibility_quick_settings_vibration">震动 <xliff:g id="state" example="Off"> %s </xliff:g>。</string>
   <string name="dessert_case_settings_cm_title">显示 XPerience 的吉祥物</string>
@@ -54,8 +55,6 @@
   <string name="quick_settings_lte_off">LTE 关闭</string>
   <string name="quick_settings_volume">音量</string>
   <string name="quick_settings_camera_label">相机</string>
-  <string name="quick_settings_network_adb_disabled_label">已禁用</string>
-  <string name="quick_settings_network_adb_enabled_label">已启用</string>
   <string name="quick_settings_bluetooth_multi_label">%1$d 已连接</string>
   <string name="location_mode_high_accuracy_title">高精确度</string>
   <string name="location_mode_battery_saving_title">节省电量</string>
@@ -69,7 +68,6 @@
   <string name="navbar_recent_button">任务键</string>
   <string name="navbar_search_button">搜索键</string>
   <string name="navbar_back_button">返回键</string>
-  <string name="navbar_empty_button">空白键</string>
   <string name="navbar_menu_conditional_button">菜单键 (自动隐藏)</string>
   <string name="navbar_menu_always_button">菜单键 (总是显示)</string>
   <string name="navbar_menu_big_button">菜单键</string>

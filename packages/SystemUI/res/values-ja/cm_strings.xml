@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="accessibility_data_connection_HP">HSPA+</string>
     <string name="accessibility_data_connection_DC">DCHSPAP</string>
     <string name="accessibility_quick_settings_ringer">サウンド <xliff:g id="state" example="Off">%s</xliff:g></string>
@@ -75,4 +76,8 @@
     <string name="screenshot_delete_action">削除</string>
     <string name="screenshot_delete_confirmation">スクリーンショットを削除しました。</string>
     <string name="accessibility_desc_add_quick_settings">クイックセッティングを追加します。</string>
+  <string name="screenshot_delete_action">削除</string>
+  <string name="screenshot_delete_confirmation">スクリーンショットを削除しました。</string>
+  <string name="accessibility_desc_add_quick_settings">クイック設定を追加します。</string>
+
 </resources>
