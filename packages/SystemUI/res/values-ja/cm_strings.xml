@@ -76,8 +76,5 @@
     <string name="screenshot_delete_action">削除</string>
     <string name="screenshot_delete_confirmation">スクリーンショットを削除しました。</string>
     <string name="accessibility_desc_add_quick_settings">クイックセッティングを追加します。</string>
-  <string name="screenshot_delete_action">削除</string>
-  <string name="screenshot_delete_confirmation">スクリーンショットを削除しました。</string>
-  <string name="accessibility_desc_add_quick_settings">クイック設定を追加します。</string>
 
 </resources>
