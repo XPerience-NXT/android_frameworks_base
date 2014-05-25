@@ -59,7 +59,7 @@ import com.android.systemui.R;
 public class MSimNetworkController extends NetworkController {
     // debug
     static final String TAG = "StatusBar.MSimNetworkController";
-    static final boolean DEBUG = true;
+    static final boolean DEBUG = false;
     static final boolean CHATTY = true; // additional diagnostics, but not logspew
 
     // telephony
@@ -354,8 +354,8 @@ public class MSimNetworkController extends NetworkController {
     }
 
     private void setCarrierText() {
-        String carrierName = mCarrierTextSub[MSimConstants.SUB1]
-                  + "    " + mCarrierTextSub[MSimConstants.SUB2];
+        String carrierName = mCarrierTextSub[MSimConstants.SUB1] + "-1"
+                  + "    " + mCarrierTextSub[MSimConstants.SUB2] + "-2";
         for (int i = 0; i < mSubsLabelViews.size(); i++) {
             TextView v = mSubsLabelViews.get(i);
             v.setText(carrierName);
@@ -534,7 +534,7 @@ public class MSimNetworkController extends NetworkController {
 
     private final void updateTelephonySignalStrength(int subscription) {
         int dataSub = MSimTelephonyManager.getDefault().getPreferredDataSubscription();
-        Slog.d(TAG, "updateTelephonySignalStrength: subscription =" + subscription);
+        if (DEBUG) Slog.d(TAG, "updateTelephonySignalStrength: subscription =" + subscription);
         if (!hasService(subscription) &&
                 (mMSimDataServiceState[subscription] != ServiceState.STATE_IN_SERVICE)) {
             if (DEBUG) Slog.d(TAG, " No service");
@@ -575,7 +575,7 @@ public class MSimNetworkController extends NetworkController {
                     iconList = TelephonyIcons.TELEPHONY_SIGNAL_STRENGTH[mInetCondition];
                 }
 
-                Slog.d(TAG, "updateTelephonySignalStrength iconList = " + iconList + "iconLevel = "
+                if (DEBUG) Slog.d(TAG, "updateTelephonySignalStrength iconList = " + iconList + "iconLevel = "
                         + iconLevel + " mInetCondition = " + mInetCondition);
                 mMSimPhoneSignalIconId[subscription] = iconList[iconLevel];
                 if (subscription == dataSub) mQSPhoneSignalIconId =
@@ -952,9 +952,11 @@ public class MSimNetworkController extends NetworkController {
         String wifiLabel = "";
         int N;
         int dataSub = MSimTelephonyManager.getDefault().getPreferredDataSubscription();
-        Slog.d(TAG,"refreshViews subscription =" + subscription + "mMSimDataConnected ="
-                + mMSimDataConnected[subscription]);
-        Slog.d(TAG,"refreshViews mMSimDataActivity =" + mMSimDataActivity[subscription]);
+        if (DEBUG) {
+            Slog.d(TAG,"refreshViews subscription =" + subscription + "mMSimDataConnected ="
+                    + mMSimDataConnected[subscription]);
+            Slog.d(TAG,"refreshViews mMSimDataActivity =" + mMSimDataActivity[subscription]);
+        }
         if (!mHasMobileDataFeature) {
             mMSimDataSignalIconId[subscription] = mMSimPhoneSignalIconId[subscription] = 0;
             mQSPhoneSignalIconId = 0;
@@ -1082,7 +1084,7 @@ public class MSimNetworkController extends NetworkController {
         }
 
         if (!mMSimDataConnected[subscription]) {
-            Slog.d(TAG, "refreshViews: Data not connected!! Set no data type icon / Roaming for"
+            if (DEBUG) Slog.d(TAG, "refreshViews: Data not connected!! Set no data type icon / Roaming for"
                     + " subscription: " + subscription);
             mMSimDataTypeIconId[subscription] = 0;
             if (subscription == dataSub) mQSDataTypeIconId = 0;
