@@ -17,6 +17,7 @@
 
 package com.android.server;
 
+import android.app.AppOpsManager;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlarmManager;
@@ -107,6 +108,8 @@ class AlarmManagerService extends IAlarmManager.Stub {
     private final LocalLog mLog = new LocalLog(TAG);
 
     private Object mLock = new Object();
+
+    private final AppOpsManager mAppOps;
 
     private final ArrayList<Integer> mTriggeredUids = new ArrayList<Integer>();
     private final ArrayList<Integer> mBlockedUids = new ArrayList<Integer>();

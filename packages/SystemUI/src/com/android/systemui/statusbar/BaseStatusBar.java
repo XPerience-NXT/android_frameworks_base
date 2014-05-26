@@ -886,7 +886,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 	private boolean mFloat;
 
         public NotificationClicker(PendingIntent intent, String pkg, String tag, int id) {
-            mIntent = intent;
+            mPendingIntent = intent;
             mPkg = pkg;
             mTag = tag;
             mId = id;

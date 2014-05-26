@@ -33,6 +33,7 @@ import static android.net.ConnectivityManager.isNetworkTypeValid;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_REJECT_METERED;
 
+import android.app.AppOpsManager;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
