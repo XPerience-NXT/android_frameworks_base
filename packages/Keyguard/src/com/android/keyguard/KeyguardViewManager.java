@@ -82,8 +82,6 @@ import android.os.*;
 import android.provider.Settings;
 import android.view.*;
 
-import com.android.internal.util.cm.LockscreenBackgroundUtil;
-
 import com.android.internal.util.cm.TorchConstants;
 
 /**
