@@ -109,8 +109,6 @@ class AlarmManagerService extends IAlarmManager.Stub {
 
     private Object mLock = new Object();
 
-    private final AppOpsManager mAppOps;
-
     private final ArrayList<Integer> mTriggeredUids = new ArrayList<Integer>();
     private final ArrayList<Integer> mBlockedUids = new ArrayList<Integer>();
 
@@ -129,6 +127,8 @@ class AlarmManagerService extends IAlarmManager.Stub {
     private final ResultReceiver mResultReceiver = new ResultReceiver();
     private final PendingIntent mTimeTickSender;
     private final PendingIntent mDateChangeSender;
+
+    private final AppOpsManager mAppOps;
 
     class WakeupEvent {
         public long when;
