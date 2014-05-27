@@ -883,23 +883,24 @@ public abstract class BaseStatusBar extends SystemUI implements
         return new NotificationClicker(intent);
     }
 
-    protected class NotificationClicker implements View.OnClickListener {
-	private KeyguardTouchDelegate mKeyguard;
-	private Intente mIntent;
-        private PendingIntent mIntent;
+    public class NotificationClicker implements View.OnClickListener {
+        private KeyguardTouchDelegate mKeyguard;
+        private PendingIntent mPendingIntent;
+        private Intent mIntent;
         private String mPkg;
         private String mTag;
         private int mId;
-	private boolean mFloat;
+        private boolean mFloat;
 
-        public NotificationClicker(PendingIntent intent, String pkg, String tag, int id) {
-	   this();
+         public NotificationClicker(PendingIntent intent, String pkg, String tag, int id) {
+
+            this();
             mPendingIntent = intent;
             mPkg = pkg;
             mTag = tag;
-            mId = id;
-        }
+             mId = id;
 
+         }
         public NotificationClicker(Intent intent) {
             this();
             mIntent = intent;
@@ -956,7 +957,7 @@ public abstract class BaseStatusBar extends SystemUI implements
                 } catch (RemoteException ex) {
                     // system process is dead if we're here.
             }
-
+}
             // close the shade if it was open
             animateCollapsePanels(CommandQueue.FLAG_EXCLUDE_NONE);
             visibilityChanged(false);
@@ -1012,7 +1013,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         updateNotificationIcons();
         maybeCollapseAfterNotificationRemoval(entry.row.isUserDismissed());
 
-	mPeek.removeNotification(entry.notification)
+	mPeek.removeNotification(entry.notification);
 
         return entry.notification;
     }
