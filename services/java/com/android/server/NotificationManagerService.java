@@ -474,7 +474,7 @@ public class NotificationManagerService extends INotificationManager.Stub
                 mPolicyFile.finishWrite(outfile);
             } catch (IOException e) {
                 if (outfile != null) {
-                    mPolicyFile.failWrite(outfile);                    IoUtils.closeQuietly(infile);
+                    mPolicyFile.failWrite(outfile);
                 }
             }
         }
