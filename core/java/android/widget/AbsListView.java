@@ -30,8 +30,8 @@ import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.StrictMode;
-import android.provider.Settings;
 import android.os.Trace;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -714,11 +714,12 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
 		boolean mIsTap = false;
 		boolean mIsGridView = false;
 
-		/**
-		* Interface definition for a callback to be invoked when the list or grid
-        * has been scrolled.
-        */
-		public interface OnScrollListener {
+
+    /**
+     * Interface definition for a callback to be invoked when the list or grid
+     * has been scrolled.
+     */
+    public interface OnScrollListener {
 
         /**
          * The view is not scrolling. Note navigating the list using the trackball counts as
@@ -857,8 +858,8 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         mOverflingDistance = configuration.getScaledOverflingDistance();
 
         mDensityScale = getContext().getResources().getDisplayMetrics().density;
-        
-        setPersistentDrawingCache(ViewGroup.PERSISTENT_ANIMATION_CACHE | ViewGroup.PERSISTENT_SCROLLING_CACHE);
+
+	setPersistentDrawingCache(ViewGroup.PERSISTENT_ANIMATION_CACHE | ViewGroup.PERSISTENT_SCROLLING_CACHE);
 
     }
 
@@ -2113,17 +2114,13 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         mInLayout = false;
 
         mOverscrollMax = (b - t) / OVERSCROLL_LIMIT_DIVISOR;
-<<<<<<< HEAD
-        
-        mHeight = getHeight();
+	mHeight = getHeight();
         mWidth = getWidth();
-=======
 
         // TODO: Move somewhere sane. This doesn't belong in onLayout().
         if (mFastScroller != null) {
             mFastScroller.onItemCountChanged(getChildCount(), mItemCount);
         }
->>>>>>> b0de9668f1903d78b717c7769098aa44d15a9e04
     }
 
     /**
@@ -2275,7 +2272,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                 if (updatedView != transientView) {
                     mRecycler.addScrapView(updatedView, position);
                 }
-
+            }
 
             // Scrap view implies temporary detachment.
             isScrap[0] = true;
@@ -2283,14 +2280,12 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         }
 
         final View scrapView = mRecycler.getScrapView(position);
-        final View child = mAdapter.getView(position, scrapView, this);
+        View child = mAdapter.getView(position, scrapView, this);
         if (scrapView != null) {
-            if (child != scrapView) { 
-	if(mIsScrolling && !mIsWidget) {
+            if(mIsScrolling && !mIsWidget) {
                 child = setAnimation(child);
             }
-
-    
+            if (child != scrapView) {
                 // Failed to re-bind the data, return scrap to the heap.
                 mRecycler.addScrapView(scrapView, position);
             } else {
@@ -2379,6 +2374,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             case 5:
                 anim = new TranslateAnimation(0.0f, 0.0f, -mHeight, 0.0f);
                 break;
+
             case 6:
                 anim = new TranslateAnimation(0.0f, 0.0f, mHeight, 0.0f);
                 break;
@@ -2418,6 +2414,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                 break;
             case 4:
                 anim.setInterpolator(AnimationUtils.loadInterpolator(mContext, android.R.anim.anticipate_interpolator));
+
                 break;
             case 5:
                 anim.setInterpolator(AnimationUtils.loadInterpolator(mContext, android.R.anim.overshoot_interpolator));
@@ -2438,7 +2435,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
     public void setGridView(boolean bool){
         mIsGridView = bool;
     }
-
 
     class ListItemAccessibilityDelegate extends AccessibilityDelegate {
         @Override
@@ -3339,7 +3335,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                 }
             }
 
-            mIsWidget = false;
+	    mIsWidget = false;
 
             if (mScrollStrictSpan == null) {
                 // If it's non-null, we're already in a scroll.
@@ -3566,7 +3562,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         final int actionMasked = ev.getActionMasked();
         switch (actionMasked) {
             case MotionEvent.ACTION_DOWN: {
-				mIsTap = true;
+		mIsTap = true;
                 Inverse.sendEmptyMessageDelayed(0, 100);
                 onTouchDown(ev);
                 break;
@@ -3578,7 +3574,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             }
 
             case MotionEvent.ACTION_UP: {
-				mIsTap = false;
+		mIsTap = false;
                 onTouchUp(ev);
                 break;
             }
@@ -4191,7 +4187,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
      */
     void reportScrollStateChange(int newState) {
         if (newState != mLastScrollState) {
-			mIsScrolling = newState != OnScrollListener.SCROLL_STATE_IDLE;
+	    mIsScrolling = newState != OnScrollListener.SCROLL_STATE_IDLE;
             if (mOnScrollListener != null) {
                 mLastScrollState = newState;
                 mOnScrollListener.onScrollStateChanged(this, newState);
@@ -5577,7 +5573,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
 
     @Override
     protected void handleDataChanged() {
-        mIsWidget = true;
+	mIsWidget = true;
         int count = mItemCount;
         int lastHandledItemCount = mLastHandledItemCount;
         mLastHandledItemCount = mItemCount;
