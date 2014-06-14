@@ -48,4 +48,9 @@ interface INotificationManager
     void cancelAllNotificationsFromListener(in INotificationListener token);
 
     StatusBarNotification[] getActiveNotificationsFromListener(in INotificationListener token);
+
+	void setPeekBlacklistStatus(String pkg, boolean status);
+	void setHoverBlacklistStatus(String pkg, boolean status);
+	boolean isPackageAllowedForHover(String pkg);
+	boolean isPackageAllowedForPeek(String pkg);
 }
