@@ -511,11 +511,8 @@ public class NavigationBarView extends LinearLayout implements NavigationCallbac
         }
         
         if (recentView != null) {
-            recentView.setImageDrawable(
-                (0 != (hints & StatusBarManager.NAVIGATION_HINT_RECENT_ALT))
-                    ? (mVertical ? mRecentAltLandIcon : mRecentAltIcon)
-                    : (mVertical ? mRecentLandIcon : mRecentIcon));
-            Log.d(TAG, "recents nav: hints("+hints+"), vertical("+mVertical+")");
+            recentView.setImageDrawable(mVertical ? mRecentLandIcon : mRecentIcon);
+
         }
 
         if (homeView != null) {
