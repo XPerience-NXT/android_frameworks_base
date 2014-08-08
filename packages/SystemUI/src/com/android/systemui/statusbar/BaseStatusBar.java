@@ -79,13 +79,10 @@ import com.android.systemui.statusbar.notification.SensorActivityHandler;
 import com.android.systemui.statusbar.notification.PeekLayout;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.statusbar.StatusBarIconList;
-<<<<<<< HEAD
 import com.android.systemui.statusbar.phone.Ticker;
-=======
 import com.android.internal.util.cm.SpamFilter;
 import com.android.internal.util.cm.SpamFilter.SpamContract.NotificationTable;
 import com.android.internal.util.cm.SpamFilter.SpamContract.PackageTable;
->>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
 import com.android.internal.widget.SizeAdaptiveLayout;
 import com.android.systemui.R;
 import com.android.systemui.RecentsComponent;

@@ -19,15 +19,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="accessibility_quick_settings_ringer">Som <xliff:g id="state" example="Off">%s</xliff:g>.</string>
   <string name="accessibility_quick_settings_vibration">Vibração <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="state">%s</xliff:g>.</string>
-<<<<<<< HEAD
   <string name="dessert_case_settings_cm_title">Exibir mascote do XPerience</string>
   <string name="dessert_case_settings_cm_summary">Exibir mascote do XPerience junto com as sobremesas do Android dentro do sonho</string>
-=======
   <string name="accessibility_dpad_left">Cursor à esquerda</string>
   <string name="accessibility_dpad_right">Cursor à direita</string>
-  <string name="dessert_case_settings_cm_title">Exibir mascote do CM</string>
-  <string name="dessert_case_settings_cm_summary">Exibir mascote do CM junto com as sobremesas do Android dentro do sonho</string>
->>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
   <string name="quick_settings_profile_label">Perfil</string>
   <string name="powerwidget_screen_timeout_toast">Tempo limite da tela ajustado para: %1$d %2$s</string>
   <string name="quick_settings_gps">GPS</string>

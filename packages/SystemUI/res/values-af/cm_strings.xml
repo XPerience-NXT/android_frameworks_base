@@ -20,15 +20,8 @@
 
   <string name="accessibility_quick_settings_ringer">Klank <xliff:g id="state" example="Off">%s</xliff:g>.</string>
   <string name="accessibility_quick_settings_vibration">Vibrasie <xliff:g id="state" example="Off">%s</xliff:g>.</string>
-<<<<<<< HEAD
   <string name="dessert_case_settings_cm_title">Wys XPe se gelukbringer</string>
   <string name="dessert_case_settings_cm_summary">Wys XPe se gelukbringer saam met Android se nageregte binne die droom</string>
-=======
-  <string name="accessibility_dpad_left">Wyser na links</string>
-  <string name="accessibility_dpad_right">Wyser na regs</string>
-  <string name="dessert_case_settings_cm_title">Wys CM se gelukbringer</string>
-  <string name="dessert_case_settings_cm_summary">Wys CM se gelukbringer saam met Android se nageregte binne die droom</string>
->>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
   <string name="quick_settings_profile_label">Profiel</string>
   <string name="powerwidget_screen_timeout_toast">Skerm afsnytyd ingestel op: %1$d %2$s</string>
   <string name="quick_settings_gps">GPS</string>

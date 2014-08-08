@@ -57,11 +57,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
         mBattery = mView.findViewById(R.id.battery);
         mDockBattery = mView.findViewById(R.id.dock_battery);
         mClock = mView.findViewById(R.id.clock);
-<<<<<<< HEAD
         mNetStats = mView.findViewById(R.id.network_stats);
-=======
         mCenterClock = mView.findViewById(R.id.center_clock);
->>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
         applyModeBackground(-1, getMode(), false /*animate*/);
         applyMode(getMode(), false /*animate*/);
     }
@@ -107,11 +104,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
                     animateTransitionTo(mDockBattery, newAlphaBC),
                     animateTransitionTo(mBattery, newAlphaBC),
                     animateTransitionTo(mClock, newAlphaBC),
-<<<<<<< HEAD
                     animateTransitionTo(mNetStats, newAlpha)
-=======
                     animateTransitionTo(mCenterClock, newAlphaBC)
->>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
                     );
             if (mode == MODE_LIGHTS_OUT) {
                 anims.setDuration(LIGHTS_OUT_DURATION);
@@ -125,11 +119,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
             mDockBattery.setAlpha(newAlphaBC);
             mBattery.setAlpha(newAlphaBC);
             mClock.setAlpha(newAlphaBC);
-<<<<<<< HEAD
             mNetStats.setAlpha(newAlpha);
-=======
             mCenterClock.setAlpha(newAlphaBC);
->>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
         }
     }
 }
