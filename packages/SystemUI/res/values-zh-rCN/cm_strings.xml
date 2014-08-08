@@ -17,12 +17,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<<<<<<< HEAD
 
   <string name="accessibility_quick_settings_ringer">声音 <xliff:g id="state" example="Off"> %s </xliff:g>。</string>
   <string name="accessibility_quick_settings_vibration">震动 <xliff:g id="state" example="Off"> %s </xliff:g>。</string>
   <string name="dessert_case_settings_cm_title">显示 XPerience 的吉祥物</string>
   <string name="dessert_case_settings_cm_summary">显示 XPerience 的吉祥物及 Android 的甜品</string>
 
+=======
+  <string name="accessibility_quick_settings_ringer">声音 <xliff:g id="state" example="Off">%s</xliff:g>。</string>
+  <string name="accessibility_quick_settings_vibration">振动 <xliff:g id="state" example="Off">%s</xliff:g>。</string>
+  <string name="accessibility_dpad_left">光标左移</string>
+  <string name="accessibility_dpad_right">光标右移</string>
+  <string name="dessert_case_settings_cm_title">显示 CM 的吉祥物</string>
+  <string name="dessert_case_settings_cm_summary">显示 CM 的吉祥物及 Android 的甜品</string>
+>>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
   <string name="quick_settings_profile_label">情景模式</string>
   <string name="powerwidget_screen_timeout_toast">屏幕超时设定为：%1$d %2$s</string>
   <string name="quick_settings_gps">GPS</string>
@@ -86,4 +95,5 @@
   <string name="screenshot_delete_action">删除</string>
   <string name="screenshot_delete_confirmation">屏幕截图已删除。</string>
   <string name="accessibility_desc_add_quick_settings">添加快速设置。</string>
+  <string name="status_bar_notification_spam_item_title">屏蔽像这样的信息</string>
 </resources>

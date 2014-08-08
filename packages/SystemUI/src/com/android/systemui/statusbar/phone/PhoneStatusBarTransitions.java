@@ -33,13 +33,14 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
     private final PhoneStatusBarView mView;
     private final float mIconAlphaWhenOpaque;
 
-    private View mLeftSide, mStatusIcons, mSignalCluster, mClock;
+    private View mLeftSide, mStatusIcons, mSignalCluster, mClock, mCenterClock;
     private View mBattery, mDockBattery;
     private View mNetStats;
     private Animator mCurrentAnimation;
 
     public PhoneStatusBarTransitions(PhoneStatusBarView view) {
-        super(view, R.drawable.status_background);
+        super(view, R.drawable.status_background, R.color.status_bar_background_opaque,
+                R.color.status_bar_background_semi_transparent);
         mView = view;
         final Resources res = mView.getContext().getResources();
         mIconAlphaWhenOpaque = res.getFraction(R.dimen.status_bar_icon_drawing_alpha, 1, 1);
@@ -56,7 +57,11 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
         mBattery = mView.findViewById(R.id.battery);
         mDockBattery = mView.findViewById(R.id.dock_battery);
         mClock = mView.findViewById(R.id.clock);
+<<<<<<< HEAD
         mNetStats = mView.findViewById(R.id.network_stats);
+=======
+        mCenterClock = mView.findViewById(R.id.center_clock);
+>>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
         applyModeBackground(-1, getMode(), false /*animate*/);
         applyMode(getMode(), false /*animate*/);
     }
@@ -102,7 +107,11 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
                     animateTransitionTo(mDockBattery, newAlphaBC),
                     animateTransitionTo(mBattery, newAlphaBC),
                     animateTransitionTo(mClock, newAlphaBC),
+<<<<<<< HEAD
                     animateTransitionTo(mNetStats, newAlpha)
+=======
+                    animateTransitionTo(mCenterClock, newAlphaBC)
+>>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
                     );
             if (mode == MODE_LIGHTS_OUT) {
                 anims.setDuration(LIGHTS_OUT_DURATION);
@@ -116,7 +125,11 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
             mDockBattery.setAlpha(newAlphaBC);
             mBattery.setAlpha(newAlphaBC);
             mClock.setAlpha(newAlphaBC);
+<<<<<<< HEAD
             mNetStats.setAlpha(newAlpha);
+=======
+            mCenterClock.setAlpha(newAlphaBC);
+>>>>>>> bc820858426ddc9678fa125e85ac2b1dcb6fd3fc
         }
     }
 }
