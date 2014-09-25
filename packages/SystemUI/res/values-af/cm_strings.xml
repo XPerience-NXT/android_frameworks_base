@@ -85,9 +85,5 @@
   <string name="screenshot_delete_action">Verwyder</string>
   <string name="screenshot_delete_confirmation">Skermkiekie geskrap</string>
   <string name="accessibility_desc_add_quick_settings">Voegby Snel instellings.</string>
-<<<<<<< HEAD
-
-=======
   <string name="status_bar_notification_spam_item_title">Ignoreer boodskappe soos hierdie</string>
->>>>>>> 609edc22aa21832f4e22df43013d9bf45c73e3c0
 </resources>

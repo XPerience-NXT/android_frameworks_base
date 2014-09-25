@@ -43,12 +43,8 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-<<<<<<< HEAD
-
 import android.graphics.drawable.Drawable;
 import android.graphics.BitmapFactory;
-=======
->>>>>>> 609edc22aa21832f4e22df43013d9bf45c73e3c0
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;

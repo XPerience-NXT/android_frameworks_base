@@ -87,10 +87,5 @@
   <string name="screenshot_delete_action">Удалить</string>
   <string name="screenshot_delete_confirmation">Скриншот удалён.</string>
   <string name="accessibility_desc_add_quick_settings">Добавить Быстрые настройки</string>
-<<<<<<< HEAD
-  <string name="status_bar_notification_spam_item_title">Блокировать подобные сообщения</string>
-
-=======
   <string name="status_bar_notification_spam_item_title">Скрыть подобные сообщения</string>
->>>>>>> 609edc22aa21832f4e22df43013d9bf45c73e3c0
 </resources>
